@@ -27,14 +27,14 @@
   "bugs": {
     "url": "https://github.com/quarva/netlify-plugin-contextual-redirects/issues"
   },
-  "homepage": "https://github.com/quarva/netlify-plugin-contextual-redirects#readme",
+  "homepage": "https://github.com/quarva/netlify-plugin-contextual-redirects",
+  "devDependencies": {
+    "@netlify/build": "^4.1.3",
+    "eslint": "^7.9.0"
+  },
   "files": [
     "index.js",
     "env.js",
     "manifest.yml"
-  ],
-  "devDependencies": {
-    "@netlify/build": "^4.1.3",
-    "eslint": "^7.9.0"
-  }
+  ]
 }
