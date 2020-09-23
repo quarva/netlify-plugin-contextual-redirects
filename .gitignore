@@ -1,3 +1,4 @@
 # Local Netlify folder
 .netlify
 /_redirects
+/node_modules

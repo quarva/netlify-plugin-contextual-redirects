@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/quarva/netlify-plugin-contextual-redirects.git"
   },
-    "keywords": [
+  "keywords": [
     "netlify-plugin",
     "netlify",
     "netlify-build-plugin",
@@ -27,5 +27,14 @@
   "bugs": {
     "url": "https://github.com/quarva/netlify-plugin-contextual-redirects/issues"
   },
-  "homepage": "https://github.com/quarva/netlify-plugin-contextual-redirects#readme"
+  "homepage": "https://github.com/quarva/netlify-plugin-contextual-redirects#readme",
+  "files": [
+    "index.js",
+    "env.js",
+    "manifest.yml"
+  ],
+  "devDependencies": {
+    "@netlify/build": "^4.1.3",
+    "eslint": "^7.9.0"
+  }
 }
