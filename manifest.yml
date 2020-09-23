@@ -1,8 +1,12 @@
 name: 'netlify-plugin-contextual-redirect'
 inputs:
+  - name: mode
+    description: append or write.
+    required: true
+    default: 'append'
   - name: config_file
     description: The location of the netlify.toml file to which we should append redirects.
-    required: true
+    required: false
     default: './netlify.toml'
   - name: production
     description: Redirects for context.production.
