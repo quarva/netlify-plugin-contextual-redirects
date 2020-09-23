@@ -1,0 +1,9 @@
+[build]
+command = "#"
+
+[[plugins]]
+  package = "."
+  [plugins.inputs]  
+    "production" = "./redirects_production"
+    "config_file" = "./netlify.toml"
+    "verbose" = "true"

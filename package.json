@@ -1,0 +1,31 @@
+{
+  "name": "@quarva/netlify-plugin-contextual-redirects",
+  "version": "0.0.1",
+  "description": "A Netlify build plugin to activate redirects based on the deploy context.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quarva/netlify-plugin-contextual-redirects.git"
+  },
+    "keywords": [
+    "netlify-plugin",
+    "netlify",
+    "netlify-build-plugin",
+    "netlify-plugins"
+  ],
+  "author": "Quarva <hello@quarva.com> (https://www.quarva.com/",
+  "contributors": [
+    "Shane Cole <shane@shanecole.com> (https://www.shanecole.com/)"
+  ],
+  "engines": {
+    "node": ">=10.22.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/quarva/netlify-plugin-contextual-redirects/issues"
+  },
+  "homepage": "https://github.com/quarva/netlify-plugin-contextual-redirects#readme"
+}

@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/test/*"
+  to = "google.com"
+  status = 200

@@ -1,0 +1,22 @@
+name: 'netlify-plugin-contextual-redirect'
+inputs:
+  - name: config_file
+    description: The location of the netlify.toml file to which we should append redirects.
+    required: true
+    default: './netlify.toml'
+  - name: production
+    description: Redirects for context.production.
+    required: false
+    default: ''
+  - name: deploy_preview
+    description: Redirects for context.deploy-preview.
+    required: false
+    default: ''
+  - name: branch_deploy
+    description: Redirects for context.branch-deploy.
+    required: false
+    default: ''
+  - name: verbose
+    description: If 'true', the plugin will write each step to the deploy log.
+    required: false
+    default: ''
