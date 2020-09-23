@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/test/*"
-  to = "google.com"
-  status = 200
+  to = "google.com/:splat"
+  status = 301
