@@ -1,7 +1,7 @@
 {
   "name": "@quarva/netlify-plugin-contextual-redirects",
   "version": "0.0.1",
-  "description": "A Netlify build plugin to activate redirects based on the deploy context.",
+  "description": "A Netlify build plugin to activate different redirects based on the deploy context.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\""

@@ -5,19 +5,19 @@ inputs:
     required: true
     default: 'standalone'
   - name: config_file
-    description: Set the location of the netlify.toml file to which we should append redirects (only required in append mode).
+    description: Path to the netlify.toml file we should append redirects to (only required in append mode).
     required: false
     default: './netlify.toml'
   - name: production
-    description: Redirects for context.production.
+    description: Path to the redirects source for context.production.
     required: false
     default: ''
   - name: deploy_preview
-    description: Redirects for context.deploy-preview.
+    description: Path to the redirects source for context.deploy-preview.
     required: false
     default: ''
   - name: branch_deploy
-    description: Redirects for context.branch-deploy.
+    description: Path to the redirects source for context.branch-deploy.
     required: false
     default: ''
   - name: verbose

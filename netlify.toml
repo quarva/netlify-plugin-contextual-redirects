@@ -5,7 +5,7 @@ publish = "./"
 [[plugins]]
   package = "."
   [plugins.inputs]  
-    "production" = "./redirects_production_append"
+    "production" = "./redirects_production_standalone"
     "config_file" = "./netlify.toml"
     "verbose" = "true"
-    "mode" = "append"
+    "mode" = "standalone"
