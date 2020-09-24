@@ -1,4 +1,4 @@
-# netlify-plugin-contextual-redirects
+# Contextual Redirects for Netlify
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7b59f403-9e40-4608-998f-54adb49f6f51/deploy-status)](https://app.netlify.com/sites/netlify-plugin-contextual-redirects/deploys) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fquarva%2Fnetlify-plugin-contextual-redirects.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fquarva%2Fnetlify-plugin-contextual-redirects?ref=badge_shield)
 
@@ -73,3 +73,5 @@ package = "@quarva/netlify-plugin-contextual-redirects"
     "verbose" = ""
      # If true, the plugin will write each step to the deploy log.
 ```
+---
+Contextual Redirects for Netlify is a foundry project from [Quarva](https://quarva.com/).
