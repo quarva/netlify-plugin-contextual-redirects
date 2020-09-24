@@ -2,7 +2,7 @@ name: 'netlify-plugin-contextual-redirect'
 inputs:
   - name: mode
     description: Choose whether to append the rules to netlify.toml or write them to a standalone _redirects file.
-    required: true
+    required: false
     default: 'standalone'
   - name: config_file
     description: Path to the netlify.toml file we should append redirects to (only required in append mode).
