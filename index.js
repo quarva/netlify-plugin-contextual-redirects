@@ -64,6 +64,11 @@ module.exports = {
 		// If we're in append mode, read and append the specified redirects to the config file
 		if (redirect_mode == 'append') {
 
+			// Make sure the netlify.toml file exists
+			if (!fs.existsSync(config_file)) {
+				return failBuild('Couldn\'t find the specified config file: ' + config_file);
+			}
+
 			Logger.debug('Append mode: using "' + redirect_source + '" in context "' + env.CONTEXT + '" for ' + config_file);
 
 			// Read the redirects file...
