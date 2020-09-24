@@ -4,10 +4,6 @@ inputs:
     description: Choose whether to append the rules to netlify.toml or write them to a standalone _redirects file.
     required: false
     default: 'standalone'
-  - name: config_file
-    description: Path to the netlify.toml file we should append redirects to (only required in append mode).
-    required: false
-    default: './netlify.toml'
   - name: production
     description: Path to the redirects source for context.production.
     required: false

@@ -30,7 +30,7 @@ module.exports = {
 
 		// Prep the necessary variables
 		const redirect_mode = inputs.mode;
-		const config_file = inputs.config_file;
+		const config_file = constants.CONFIG_PATH;
 		const publish_dir = constants.PUBLISH_DIR;
 		const redirect_source = getRedirects(env.CONTEXT);
 
