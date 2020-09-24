@@ -41,7 +41,7 @@ package = "@quarva/netlify-plugin-contextual-redirects"
   		# Path to your netlify.toml
 ```
 
-In `append` mode, you may specify which `netlify.toml` file you'd like the redirects added to. If none is specified, the plugin defaults to `./netlify.toml`.
+In `append` mode, you can optionally specify which `netlify.toml` file you'd like the redirects added to. If none is specified, the plugin defaults to `./netlify.toml`.
 
 As the name suggests, redirects will be *appended* to the end of the file and existing redirects won't be overwritten, so you can combine permanent redirects - which live in the base `netlify.toml` - with context-specific rules.
 
