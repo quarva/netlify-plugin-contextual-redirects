@@ -28,7 +28,7 @@ module.exports = {
 		const publish_dir = constants.PUBLISH_DIR;
 
 		// Check to see if the current context is active
-		const active = contexts.includes(env.CONTEXT) ? true : false;
+		const active = contexts.includes(env.CONTEXT)
 
 		// If this isn't an active context, let the user know
 		if (!active) {
