@@ -18,36 +18,32 @@ module.exports = {
 
 	    // Check inputs
 	    global.verbose = inputs.verbose;
-
-		function getRedirects(context){   
-		    switch(context){   
-		        case 'production': return inputs.production;
-		        case 'deploy_preview': return inputs.deploy_preview;
-		        case 'branch_deploy': return inputs.branch_deploy;
-		        default: return "";      
-		    }
-		}
+		const contexts = inputs.contexts;
+		const redirect_mode = inputs.mode;
+		const redirect_path = inputs.redirect_path || constants.PUBLISH_DIR
 
 		// Prep the necessary variables
-		const redirect_mode = inputs.mode;
+		const redirect_source = redirect_path + '/redirects_' + env.CONTEXT;
 		const config_file = constants.CONFIG_PATH;
 		const publish_dir = constants.PUBLISH_DIR;
-		const redirect_source = getRedirects(env.CONTEXT);
 
-		// If no redirects have been specified for this context, bail out before the build starts
-		if (!isValidString(redirect_source)) {
-			return failPlugin('No redirects specified for context: ' + env.CONTEXT);
+		// Check to see if the current context is active
+		const active = contexts.includes(env.CONTEXT) ? true : false;
+
+		// If this isn't an active context, let the user know
+		if (!active) {
+			return console.log('Contextual redirects not enabled for context: ' + env.CONTEXT);
 		}
 
-		// If redirects have been specified for this context, verify that the file exists
-		if (!fs.existsSync(redirect_source)) {
+		// If this is an active context, make sure the redirect file exists
+		if ((active) && !fs.existsSync(redirect_source)) {
 			return failBuild('Couldn\'t find the specified redirects file: ' + redirect_source);
 		}
 
 		// If we're in standalone mode, copy the specified redirects to _redirects
-		if (redirect_mode == 'standalone') {
+		if ((active) && redirect_mode == 'standalone') {
 			
-			Logger.debug('Write mode: using "' + redirect_source + '" in context "' + env.CONTEXT + '"');
+			Logger.debug('Standalone mode: using "' + redirect_source + '" in context "' + env.CONTEXT + '"');
 
 			try {
 				fs.copyFile(redirect_source, publish_dir + '/_redirects', (err) => {
@@ -62,7 +58,7 @@ module.exports = {
 		}
 
 		// If we're in append mode, read and append the specified redirects to the config file
-		if (redirect_mode == 'append') {
+		if ((active) && redirect_mode == 'append') {
 
 			// Make sure the netlify.toml file exists
 			if (!fs.existsSync(config_file)) {
