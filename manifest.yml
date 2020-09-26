@@ -1,15 +1,15 @@
 name: 'netlify-plugin-contextual-redirect'
 inputs:
   - name: mode
-    description: Choose whether to append the rules to netlify.toml or write them to a standalone _redirects file.
+    description: Choose whether you want to append the rules to netlify.toml or write them to a standalone _redirects file.
     required: false
     default: 'standalone'
   - name: contexts
-    description: Contexts in which we should look for a rerdirects_context file.
+    description: An array of contexts in which the plugin will search for a redirects_* file.
     required: false
     default: ''
   - name: redirect_path
-    description: Path to the directory containing the redirect files. Defaults to your site's publish directory.
+    description: Path to the directory containing the redirect_* files. Defaults to your site's publish directory.
     required: false
     default: ''
   - name: verbose

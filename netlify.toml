@@ -5,6 +5,7 @@ publish = "./"
 [[plugins]]
   package = "."
   [plugins.inputs]  
-  	"contexts" = ["production","fake_context"]
-    "verbose" = "true"
-    "mode" = "append"
+  	"contexts" = ["production"]
+    "verbose" = ""
+    "mode" = "standalone"
+    "redirect_path" = "./redirect_samples"
