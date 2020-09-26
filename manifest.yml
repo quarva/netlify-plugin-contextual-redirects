@@ -4,16 +4,12 @@ inputs:
     description: Choose whether to append the rules to netlify.toml or write them to a standalone _redirects file.
     required: false
     default: 'standalone'
-  - name: production
-    description: Path to the redirects source for context.production.
+  - name: contexts
+    description: Contexts in which we should look for a rerdirects_context file.
     required: false
     default: ''
-  - name: deploy_preview
-    description: Path to the redirects source for context.deploy-preview.
-    required: false
-    default: ''
-  - name: branch_deploy
-    description: Path to the redirects source for context.branch-deploy.
+  - name: redirect_path
+    description: Path to the directory containing the redirect files. Defaults to your site's publish directory.
     required: false
     default: ''
   - name: verbose
