@@ -1,0 +1,3 @@
+# Standalone Sample
+
+/test/*	https://www.google.com/search?q=:splat	301
