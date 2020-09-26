@@ -6,6 +6,6 @@ publish = "./"
   package = "."
   [plugins.inputs]  
   	"contexts" = ["production"]
-    "verbose" = ""
+    "verbose" = "true"
     "mode" = "standalone"
     "redirect_path" = "./redirect_samples"
