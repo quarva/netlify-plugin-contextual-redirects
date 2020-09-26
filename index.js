@@ -14,7 +14,7 @@ const Logger = {
 
 module.exports = {
 
-	onPreBuild: ({ constants, inputs, utils: { build: { failPlugin, failBuild } } }) => {
+	onPostBuild: ({ constants, inputs, utils: { build: { failPlugin, failBuild } } }) => {
 
 		// Check inputs
 		global.verbose = inputs.verbose;
