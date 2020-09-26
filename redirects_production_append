@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/test/*"
-  to = "https://www.google.com/search?q=:splat"
-  status = 301

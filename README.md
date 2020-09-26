@@ -9,10 +9,12 @@ A Netlify build plugin to activate different redirects based on the deploy conte
 ### Install
 
 ```bash
-npm install --save @quarva/netlify-plugin-contextual-redirects
+npm install @quarva/netlify-plugin-contextual-redirects
+```
 
-or 
+or
 
+```bash
 yarn add @quarva/netlify-plugin-contextual-redirects
 ```
 
@@ -27,47 +29,60 @@ Note: The `[[plugins]]` line is required for each plugin, even if you have other
 
 ### Configuration
 
-This plugin supports both standalone `_redirects` files and redirect blocks in `netlify.toml`. You can switch between these two using the `mode` input:
+#### Contexts
+
+Before the plugin will do anything, you need to configure the deploy contexts in which it should activate. This is done by passing an array to the `contexts` input.
+
+The array can include any of the standard Netlify deploy contexts - e.g. `production` or `deploy-preview` - or a branch name, if you've enabled branch deploys for your site.
+
+```toml
+[[plugins]]
+package = "@quarva/netlify-plugin-contextual-redirects"
+	[plugins.inputs]
+		"contexts" = ["production","staging"]
+			# Here, production is a standard context and staging is a branch.
+```
 
 #### Modes
 
 ```toml
 [[plugins]]
 package = "@quarva/netlify-plugin-contextual-redirects"
-  [plugins.inputs]
-  	"mode" = "append"
-  		# Can be "append" or "standalone"
+	[plugins.inputs]
+		"contexts" = ["production","staging"]
+		"mode" = "append"
+			# Can be "append" or "standalone"
 ```
+
+This plugin supports both standalone `_redirects` files and redirect blocks in `netlify.toml`. You can switch between these two using the `mode` input.
+
+By default, the plugin operates in `standalone` mode - this will always write to a `_redirects` file in your site's publish direrctory. If that file already exists, it will be overwritten.
 
 In `append` mode, redirects will be *appended* to the end of your `netlify.toml` file and existing redirects won't be overwritten. This allows you to combine permanent redirects - which live in the base `netlify.toml` - with context-specific rules.
 
-In `standalone` mode, the plugin will always write to a `_redirects` file in your site's publish direrctory. If that file already exists, it will be overwritten.
+#### Redirect Sources
 
-**Default:** `standalone`
+When the plugin detects an active context, it looks for a `redirects_$context` file in your site's publish directory - for example, `/dist/redirects_production`.
 
-#### Redirect sources
+**Important:** make sure the source files are formatted according to the mode you chose. Source files for `append` mode must use `[[redirects]]` blocks, and source files for `standalone` mode must use the Netlify `_redirects` syntax.
+
+You can tell the plugin to look for source files in a different path using the `redirect_path` input.
 
 ```toml
 [[plugins]]
 package = "@quarva/netlify-plugin-contextual-redirects"
-  [plugins.inputs]
-    "production" = "./redirects_production"
-    "deploy_preview" = "./redirects_deploy_preview"
-    "branch_deploy" = "./redirects_branch_deploy"
+	[plugins.inputs]
+		"redirect_path" = "./config/redirects"
 ```
-
-You can specify redirect source files for any of Netlify's three default deploy contexts. These files can live anywhere in your repository and can have any name you choose.
-
-**Important:** make sure the source files you specify are formatted according to the mode you chose. Source files for `append` mode must use `[[redirects]]` blocks, and source files for `standalone` mode must use the Netlify `_redirects` syntax.
 
 #### Other Options
 
 ```toml
 [[plugins]]
 package = "@quarva/netlify-plugin-contextual-redirects"
-  [plugins.inputs]
-    "verbose" = ""
-     # If true, the plugin will write each step to the deploy log.
+	[plugins.inputs]
+		"verbose" = ""
+		 # If true, the plugin will write each step to the deploy log.
 ```
 ---
 Contextual Redirects for Netlify is a foundry project from [Quarva](https://quarva.com/).
