@@ -40,19 +40,10 @@ The array can include any of the standard Netlify deploy contexts - e.g. `produc
 package = "@quarva/netlify-plugin-contextual-redirects"
 	[plugins.inputs]
 		"contexts" = ["production","staging"]
-			# Here, production is a standard context and staging is a branch.
+		# Here, production is a standard context and staging is a branch.
 ```
 
 #### Modes
-
-```toml
-[[plugins]]
-package = "@quarva/netlify-plugin-contextual-redirects"
-	[plugins.inputs]
-		"contexts" = ["production","staging"]
-		"mode" = "append"
-			# Can be "append" or "standalone"
-```
 
 This plugin supports both standalone `_redirects` files and redirect blocks in `netlify.toml`. You can switch between these two using the `mode` input.
 
@@ -60,13 +51,22 @@ By default, the plugin operates in `standalone` mode - this will always write to
 
 In `append` mode, redirects will be *appended* to the end of your `netlify.toml` file and existing redirects won't be overwritten. This allows you to combine permanent redirects - which live in the base `netlify.toml` - with context-specific rules.
 
+```toml
+[[plugins]]
+package = "@quarva/netlify-plugin-contextual-redirects"
+	[plugins.inputs]
+		"contexts" = ["production","staging"]
+		"mode" = "append"
+		# Can be "append" or "standalone"
+```
+
 #### Redirect Sources
 
 When the plugin detects an active context, it looks for a `redirects_$context` file in your site's publish directory - for example, `/dist/redirects_production`.
 
-**Important:** make sure the source files are formatted according to the mode you chose. Source files for `append` mode must use `[[redirects]]` blocks, and source files for `standalone` mode must use the Netlify `_redirects` syntax.
-
 You can tell the plugin to look for source files in a different path using the `redirect_path` input.
+
+**Important:** make sure the source files are formatted according to the mode you chose. Source files for `append` mode must use [`[[redirects]]` blocks](https://docs.netlify.com/routing/redirects/#syntax-for-the-netlify-configuration-file), and source files for `standalone` mode must use the [Netlify `_redirects` syntax](https://docs.netlify.com/routing/redirects/#syntax-for-the-redirects-file).
 
 ```toml
 [[plugins]]
