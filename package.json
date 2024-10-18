@@ -30,7 +30,7 @@
   "homepage": "https://github.com/quarva/netlify-plugin-contextual-redirects",
   "devDependencies": {
     "@netlify/build": "4.4.0",
-    "eslint": "7.9.0"
+    "eslint": "9.13.0"
   },
   "publishConfig": {
     "access": "public"
